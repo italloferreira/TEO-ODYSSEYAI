@@ -5,10 +5,21 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
   }
+
+  :root{
+    --backgoud:#0d1117;
+    --second-backgoud: #1f2937;
+    --title: #f5f5f5;
+    --text:#a1a1aa;
+    --button: #001455;
+    --button-hover:#000e3d;
+    --button-text:#f5f5f5;
+
+  }
   
   body {
-    background-color: #0d1117;
-    color: #f5f5f5;
+    background-color: var(--backgoud);
+    color: var(--title);
     line-height: 1.6;
   }
   
@@ -20,7 +31,7 @@
     align-items: center;
     text-align: center;
     padding: 50px 20px;
-    background: linear-gradient(135deg, #1f2937, #111827);
+    background: var(--backgoud);
   }
   
   .hero h1 {
@@ -37,15 +48,18 @@
   }
   
   .mockup-space {
-    border: 2px dashed #4ade80;
+    border: 2px dashed var(--button);
     border-radius: 16px;
     padding: 60px;
     margin: 30px 0;
+    background-image: url(./img/img\ 1.png);
+    background-size: cover;
+    background-position: center;
   }
   
   .cta {
-    background-color: #4ade80;
-    color: #0f172a;
+    background-color: var(--button);
+    color: var(--button-text);
     padding: 15px 35px;
     font-size: 1rem;
     border: none;
@@ -55,19 +69,19 @@
   }
   
   .cta:hover {
-    background-color: #22c55e;
+    background-color: var(--button-hover);
   }
   
   .hero small {
     display: block;
     margin-top: 10px;
-    color: #a1a1aa;
+    color: var(--text);
   }
   
   /* DOR */
   .pain {
     padding: 80px 20px;
-    background-color: #111827;
+    background-color: var(--backgoud);
     text-align: center;
   }
   
@@ -88,7 +102,7 @@
   
   .pain p {
     font-size: 1rem;
-    color: #d1d5db;
+    color: var(--text);
     max-width: 700px;
     margin: 0 auto;
   }
@@ -96,7 +110,7 @@
   /* SOLUÇÃO */
   .solution {
     padding: 80px 20px;
-    background-color: #0f172a;
+    background-color: var(--backgoud);
   }
   
   .solution h2 {
@@ -106,10 +120,10 @@
   }
   
   .card {
-    background-color: #1f2937;
+    background-color: var(--second-backgoud);
     padding: 30px;
     border-radius: 16px;
-    max-width: 600px;
+    width: 95%;
     margin: 20px auto;
     transition: transform 0.3s;
   }
@@ -126,21 +140,46 @@
   .card p {
     font-size: 1rem;
     margin-bottom: 15px;
-    color: #d1d5db;
+    color: var(--text);
   }
   
   .img-space {
-    border: 2px dashed #4ade80;
+    height: 300px;
     border-radius: 12px;
     padding: 40px;
     text-align: center;
-    color: #a1a1aa;
+    color: var(--text);
+    background-image: url(./img/img\ 1.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .img-space-dois {
+    height: 300px;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    color: var(--text);
+    background-image: url(./img/img\ 2.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .img-space-tres {
+    height: 300px;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    color: var(--text);
+    background-image: url(./img/img\ 3.png);
+    background-size: cover;
+    background-position: center;
   }
   
   /* DEPOIMENTOS */
   .testimonials {
     padding: 80px 20px;
-    background-color: #111827;
+    background-color: var(--backgoud);
     text-align: center;
   }
   
@@ -150,7 +189,7 @@
   }
   
   .testimonial {
-    background-color: #1f2937;
+    background-color:var(--second-backgoud);
     padding: 30px;
     border-radius: 16px;
     max-width: 600px;
@@ -164,12 +203,12 @@
   
   .testimonial span {
     font-size: 0.9rem;
-    color: #a1a1aa;
+    color: var(--text);
   }
   
   /* CTA FINAL */
   .final-cta {
-    background-color: #0f172a;
+    background-color: var(--backgoud);
     padding: 100px 20px;
     text-align: center;
   }
