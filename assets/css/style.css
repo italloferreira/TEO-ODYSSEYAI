@@ -52,7 +52,7 @@
     border-radius: 16px;
     padding: 60px;
     margin: 30px 0;
-    background-image: url(./img/img\ 1.png);
+    background-image: url(../img/img\ 1.png);
     background-size: cover;
     background-position: center;
   }
@@ -149,7 +149,7 @@
     padding: 40px;
     text-align: center;
     color: var(--text);
-    background-image: url(./img/img\ 1.png);
+    background-image: url(../img/img\ 1.png);
     background-size: cover;
     background-position: center;
   }
@@ -160,7 +160,7 @@
     padding: 40px;
     text-align: center;
     color: var(--text);
-    background-image: url(./img/img\ 2.png);
+    background-image: url(../img/img\ 2.png);
     background-size: cover;
     background-position: center;
   }
@@ -171,7 +171,7 @@
     padding: 40px;
     text-align: center;
     color: var(--text);
-    background-image: url(./img/img\ 3.png);
+    background-image: url(../img/img\ 3.png);
     background-size: cover;
     background-position: center;
   }
