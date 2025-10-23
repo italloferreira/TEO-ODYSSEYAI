@@ -100,10 +100,41 @@
     <div class="final-content">
       <h2>Pronto para mudar seu jeito de estudar?</h2>
       <p>Deixe a procrastinação para trás e comece a evoluir hoje mesmo. Acesse o botão abaixo e tenha acesso gratuito ao TEO. Oferta limitada!</p>
-      <a href="./pages/form.html"><button class="cta" onclick="fbq('track', 'Lead');">QUERO CONHECER O TEO</button></a>
+      <a href="./pages/form.html"><button class="cta" onclick="fbq('track', 'Lead');" id="cta-assinar-agora">QUERO CONHECER O TEO</button></a>
     </div>
   </section>
   <script src="./assets/js/scripts.js"></script>
+
+  <script>
+  // --- INÍCIO DO SCRIPT DA ARMADILHA ---
+
+  // 1. Defina o ID exato do seu botão de CTA aqui.
+  var idDoSeuBotao = 'cta-assinar-agora';
+
+  // 2. Encontra o botão na página
+  var botaoDeConversao = document.getElementById(idDoSeuBotao);
+
+  // 3. Verifica se o botão realmente existe antes de tentar usá-lo
+  if (botaoDeConversao) {
+    
+    // 4. Adiciona um "ouvinte" que espera pelo clique
+    botaoDeConversao.addEventListener('click', function() {
+      
+      // 5. Quando o clique acontece, dispara o evento 'Lead' para o Facebook
+      fbq('track', 'Lead');
+
+      // 6. (Opcional) Mostra no console do navegador que funcionou
+      console.log('Evento de LEAD disparado para o Pixel da Meta!');
+
+    }, false);
+
+  } else {
+    // 7. (Opcional) Avisa no console se o ID do botão estiver errado
+    console.error('ERRO DO PIXEL: O botão com o ID "' + idDoSeuBotao + '" não foi encontrado. O rastreamento de clique não vai funcionar.');
+  }
+
+  // --- FIM DO SCRIPT DA ARMADILHA ---
+</script>
   
 </body>
 </html>
