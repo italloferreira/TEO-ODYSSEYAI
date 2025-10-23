@@ -1,88 +1,143 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
+/* ==========================================================================
+   STYLE-FORM.CSS - (v2 - Corrigido e Responsivo)
+   Estética: Futurista, Dark Mode com Glow Ciano (Consistente com a LP)
+   ========================================================================== */
 
-  body {
-    background: linear-gradient(135deg, #0c1220, #141b2e);
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* --- Variáveis de Cor (Mesmas da página principal) --- */
+:root {
+  --background-color: #f2f2f2;
+  --text-color: #121212;
+  --accent-color: #000e3d;
+  --accent-darker: #001455;
+  --border-color: #001455;
+  --input-background: #fdfdfd;
+}
 
-  .container {
-    background: #1b2236;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    padding: 40px 35px;
-    width: 90%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    border: 1px solid #2b3550;
-  }
+/* --- Estilos Gerais (CORRIGIDO) --- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  /* Adicionamos um padding geral para dar respiro em telas pequenas */
+  padding: 20px; 
+}
 
-  .container h1 {
-    font-size: 1.8rem;
-    color: #ffffff;
-    margin-bottom: 10px;
-  }
+/* --- Container Principal (AJUSTADO) --- */
+.form-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 40px auto; /* Adiciona espaço no topo e centraliza horizontalmente */
+  text-align: center;
+}
 
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
+/* --- Títulos e Textos --- */
+h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #121212;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+}
 
-  label {
-    font-size: 0.9rem;
-    color: #ccc;
-  }
+header p {
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
 
-  input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: #252d45;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    transition: 0.3s;
-  }
+/* --- Estilo do Formulário --- */
+form {
+  text-align: left;
+}
 
-  input:focus {
-    background: #2e395a;
-    border: 1px solid #f54747;
-  }
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  color: var(--accent-color);
+}
 
-  button {
-    margin-top: 10px;
-    background: #f54747;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: var(--input-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box; 
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-  button:hover {
-    background: #ff5b5b;
-    transform: scale(1.03);
-  }
+/* Efeito de Glow ao focar no campo */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+}
 
-  .footer-text {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: #aaa;
-  }
+/* --- Botão de Envio (Estilo idêntico ao CTA da LP) --- */
+button[type="submit"] {
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  position: relative;
+  background: var(--background-color);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  padding: 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  font-family: inherit;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -1;
+  margin: -1px;
+  border-radius: inherit;
+  background: linear-gradient(to right, var(--accent-darker), var(--accent-color));
+}
+
+button[type="submit"]:hover {
+  color: var(--background-color);
+}
+
+button[type="submit"]::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, var(--accent-darker), var(--accent-color));
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+button[type="submit"]:hover::after {
+  opacity: 1;
+}
+
+/* --- Rodapé --- */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #6c757d;
+  font-size: 0.9em;
+}
