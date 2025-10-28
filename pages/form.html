@@ -54,7 +54,48 @@
                 <input type="tel" id="whatsapp" name="whatsapp_usuario">
             </p>
 
-            <p>
+            <p style="margin-top: 20px;">
+                <input type="checkbox" id="autorizacao" name="autorizacao" required>
+                <label for="autorizacao">
+                    Li e concordo com os <a href="#termos" style="color:#007bff; text-decoration:underline;">Termos de Uso e Serviço da T.E.O</a>.
+                </label>
+            </p>
+
+            <details id="termos" style="margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 8px;">
+                <summary style="cursor: pointer; font-weight: bold;">📄 Ler Termos de Uso e Serviço da T.E.O</summary>
+                <div style="max-height: 300px; overflow-y: auto; margin-top: 10px; font-size: 0.9em;">
+                    <p><strong>Termos de Uso e Serviço da T.E.O</strong></p>
+
+                    <p>Seja Bem-Vindo ao site da T.E.O. Antes de explorar tudo o que temos a oferecer, é importante que você entenda e concorde com algumas regras básicas que regem o uso do nosso site <a href="https://italloferreira.github.io/TEO-ODYSSEYAI/" target="_blank">https://italloferreira.github.io/TEO-ODYSSEYAI/</a>, e qualquer outro serviço digital que nós oferecemos, como lojas e plataformas de e-commerce.</p>
+
+                    <p>Ao usar nosso site e serviços, você automaticamente concorda em seguir as regras que estabelecemos aqui. Caso não concorde com algo, por favor, considere não usar nossos serviços. É muito importante para nós que você se sinta seguro e informado a todo momento.</p>
+
+                    <h3>1. Aceitando os Termos</h3>
+                    <p>Ao navegar e usar o site da T.E.O, você concorda automaticamente com nossas regras e condições. Estamos sempre procurando melhorar, então esses termos podem mudar de vez em quando. Se fizermos alterações significativas, vamos postar as atualizações aqui no site. Continuar usando o site após essas mudanças significa que você aceita os novos termos.</p>
+
+                    <h3>2. Como Usar o Nosso Site</h3>
+                    <p>A maior parte do nosso site está aberta para você sem a necessidade de cadastro. No entanto, algumas seções especiais podem exigir que você crie uma conta. Pedimos que você seja honesto ao fornecer suas informações e que mantenha sua senha e login seguros.</p>
+
+                    <h3>3. Sua Privacidade</h3>
+                    <p>Na T.E.O, a privacidade é um valor essencial. Ao interagir com nosso site, você aceita nossa Política de Privacidade, que detalha como coletamos, usamos e protegemos suas informações. Nosso compromisso é com a transparência e a segurança.</p>
+
+                    <h3>4. Direitos de Conteúdo</h3>
+                    <p>O conteúdo disponível no site da T.E.O constitui propriedade intelectual protegida por leis nacionais e internacionais. O uso sem autorização é proibido.</p>
+
+                    <h3>5. Cookies e Mais</h3>
+                    <p>Usamos cookies para melhorar sua experiência. Você pode ajustá-los nas configurações do seu navegador, mas isso pode afetar algumas funcionalidades.</p>
+
+                    <h3>6. Explorando Links Externos</h3>
+                    <p>Nosso site pode conter links externos. Não nos responsabilizamos pelo conteúdo ou políticas desses sites.</p>
+
+                    <h3>7. Mudanças e Atualizações</h3>
+                    <p>Podemos atualizar nossos termos a qualquer momento. Recomendamos que revise esta página periodicamente.</p>
+
+                    <p>Dúvidas? Contate-nos em: <a href="mailto:teoodysseyai@gmail.com">teoodysseyai@gmail.com</a></p>
+                </div>
+            </details>
+
+            <p style="margin-top: 20px;">
                 <button type="submit">FINALIZAR CADASTRO E RECEBER ACESSO</button>
             </p>
 
@@ -65,18 +106,31 @@
         <p>Seus dados estão seguros conosco.</p>
     </footer>
 
+
     <script>
-    const form = document.getElementById('form');
+     const form = document.getElementById('form');
+    const check = document.getElementById('autorizacao');
+    const btn = document.getElementById('btnSubmit');
 
+    // Desbloqueia o botão apenas se o checkbox for marcado
+    check.addEventListener('change', () => {
+        btn.disabled = !check.checked;
+        btn.style.opacity = check.checked ? '1' : '0.6';
+        btn.style.cursor = check.checked ? 'pointer' : 'not-allowed';
+    });
+
+    // Verificação final antes de enviar
     form.addEventListener('submit', function(event) {
+        if (!check.checked) {
+            alert('Por favor, marque que você leu e concorda com os Termos de Uso da T.E.O antes de enviar.');
+            event.preventDefault();
+            return;
+        }
+
         event.preventDefault(); // impede envio imediato
-
-        // Dispara o evento Lead
-        fbq('track', 'Lead');
-
-        // Aguarda meio segundo para o evento ser enviado
+        fbq('track', 'Lead'); // dispara o evento Lead
         setTimeout(() => {
-        form.submit(); // agora envia o formulário
+            form.submit(); // envia o formulário após meio segundo
         }, 500);
     });
     </script>
